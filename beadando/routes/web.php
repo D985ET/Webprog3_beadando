@@ -15,7 +15,7 @@ use App\Http\Controllers\TestController;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
 });
 //ide kellenek az url-ek
 Route::get('/test',[TestController::class, 'index']); //első rész a kontroller, a másik a függvény a TestController classban

@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+<<<<<<< HEAD
 use App\Http\Controllers;
+=======
+>>>>>>> parent of ef1f25b (MVC alap megcsinálva)
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +17,13 @@ use App\Http\Controllers;
 |
 */
 
+<<<<<<< HEAD
 Route::get('/', [Controllers\HomeController::class, 'index'])->name('home');
    
 
 
+=======
+Route::get('/', function () {
+    return view('welcome');
+});
+>>>>>>> parent of ef1f25b (MVC alap megcsinálva)

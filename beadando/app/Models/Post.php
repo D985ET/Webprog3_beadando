@@ -15,7 +15,11 @@ class Post extends Model
     ];
     public function topic()
     {
-        return $this->belongsTo('App\Models\Topic');
-        //return $this->belongsTo(Topic::class);
+        
+        return $this->belongsTo(Topic::class);
+    }
+    public function author()
+    {
+        return $this->belongsTo(User::class,'author_id');
     }
 }

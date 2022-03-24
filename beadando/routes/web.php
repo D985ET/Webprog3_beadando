@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers;
+use App\Http\Controllers\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +14,9 @@ use App\Http\Controllers;
 |
 */
 
-Route::get('/', [Controllers\HomeController::class, 'index'])->name('home');
-   
-
+Route::get('/', function () {
+    return view('home');
+});
+//ide kellenek az url-ek
+Route::get('/test',[TestController::class, 'index']); //első rész a kontroller, a másik a függvény a TestController classban
 

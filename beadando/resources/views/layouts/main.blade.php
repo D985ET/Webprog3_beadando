@@ -41,14 +41,14 @@
     @stack('styles')
   </head>
   <body>
-    @include('layouts._header')<!--header-->
+    @include('layouts._header')
   
-    <main class="container"> <!--Main-->
+    <main class="container py-4"> 
           @yield('content')
     </main>
 
 
-    @include('layouts._footer')<!--footer-->
+    @include('layouts._footer')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   @stack('scripts')
   </body>

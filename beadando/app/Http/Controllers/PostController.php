@@ -53,7 +53,8 @@ class PostController extends Controller
 
         $post = $user->posts()->create($request->except('_token')); //USer.php-ban van egy ilyen method, mindent fogjunk meg a requestből ami nem a _token
 
-        return redirect()->route('post.details',$post); //ezt a web.php-ban meg kell adni, ezután a show function
+        return redirect()->route('post.details',$post)->with('success',__('Játék sikeresen hozzáadva')); //ezt a web.php-ban meg kell adni, ezután a show function
+        
     }
 
     /**
@@ -64,7 +65,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        dd($post);
+        return view('post.show')->with(compact('post'));
     }
 
     /**

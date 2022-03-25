@@ -7,6 +7,6 @@
 
 <div>
     <h5>{{__('Játék leírás:')}}</h5>
-    {{$post->content}}
+    {!!$post->content!!} <!--rendereli a html-t-->
 </div>
 @endsection

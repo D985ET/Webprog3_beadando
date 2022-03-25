@@ -9,8 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('home');
-        /*$posts = Post::orderBy('created_at', 'desc')->paginate(8);
-        return view('home')->with(compact('posts'));*/
+        $posts = Post::orderBy('title','asc')->paginate(2);//2 db jelenjen meg egyszerre, mi alapján title alapján növekvőben
+        return view('home')->with(compact('posts'));
     }
 }

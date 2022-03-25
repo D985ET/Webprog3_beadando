@@ -14,7 +14,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(10)->create();
+        \App\Models\User::factory(10)->create(); //le generál 10 db felhasználót
+
         $this->call(TopicsTableSeeder::class);//meghívjuk a TopicsTableSeedert
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Post;
 use App\Models\Topic;
 use Illuminate\Http\Request;
@@ -41,9 +42,18 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required|min:2|max:240',
             'topic_id' => 'required|exists:topics,id',
+            'maxPlayer' => 'required|min:1|max:12',
             'description' => 'required',
             'content' => 'required',
         ]);
+        //dd($request->all());
+
+        //todo replace this with authenticated user
+        $user = User::first(); //első usert használom
+
+        $post = $user->posts()->create($request->except('_token')); //USer.php-ban van egy ilyen method, mindent fogjunk meg a requestből ami nem a _token
+
+        return redirect()->route('post.details',$post); //ezt a web.php-ban meg kell adni, ezután a show function
     }
 
     /**
@@ -54,7 +64,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        dd($post);
     }
 
     /**

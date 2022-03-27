@@ -42,7 +42,7 @@
 <body>
     @include('layouts._header')
 
-    <main class="container py-4"> 
+    <main class="container py-4"> <!--ettől lesz reszponzív-->
         @include('layouts._alerts')
           @yield('content')
     </main>

@@ -13,7 +13,7 @@
           <li><a href="#" class="nav-link px-2 text-white">About</a></li>
         </ul>
 
-        <div class="col-5 text-center">
+        <div class="col-4 text-center">
             <a class="blog-header-logo text-white" href="{{ route('home') }}">
               {{config('app.name')}}
             </a>
@@ -24,7 +24,11 @@
 
         <div class="text-end">
           <button type="button" class="btn btn-outline-light me-2">Login</button>
-          <button type="button" class="btn btn-outline-dark" style="background-color: #f55247">Sign-up</button>
+          <button type="button" class="btn btn-outline-light" style="background-color: #f55247">
+            <a class="nounderline" style=" color: white " href="{{ route('post.create')}}">
+              {{__('Publikálás')}}
+            </a>
+          </button>
         </div>
       </div>
     </div>

@@ -13,7 +13,7 @@
           <li><a href="#" class="nav-link px-2 text-white">About</a></li>
         </ul>
 
-        <div class="col-4 text-center">
+        <div class="col-4 text-center me-5">
             <a class="blog-header-logo text-white" href="{{ route('home') }}">
               {{config('app.name')}}
             </a>

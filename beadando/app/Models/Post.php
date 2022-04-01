@@ -22,4 +22,16 @@ class Post extends Model
     {
         return $this->belongsTo(User::class,'author_id');
     }
+    public function getHasCoverAttribute()
+    {
+        return $this->cover != null;
+    }
+
+    public function getCoverImageAttribute()
+    {
+        if ($this->has_cover) {
+            return asset("upload/posts/{$this->cover}"); //ha van cover-je
+        }
+        return "https://via.placeholder.com/350"; //ha pedig nincsen akkor ezzel térjen vissza
+    }
 }

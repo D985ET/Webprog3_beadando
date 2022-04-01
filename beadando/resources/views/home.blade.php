@@ -2,7 +2,6 @@
 
 @section('content')
 <div class="card-group">
-  
         @foreach($posts as $post) 
             <div class="col-md-8 col-lg-6 mx-auto" style="max-width:30rem">
                 <div class="card mb-3">
@@ -22,7 +21,6 @@
                                 <a class="btn btn-primary btn-outline-dark " style="background-color: #f55247" href="{{route('post.details',$post)}}">Részletek</a>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

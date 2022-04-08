@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
+use App\View\Composers\TopicViewComposer;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,5 +28,6 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         Paginator::useBootstrapFive();
+        View::composer('*', TopicViewComposer::class);
     }
 }

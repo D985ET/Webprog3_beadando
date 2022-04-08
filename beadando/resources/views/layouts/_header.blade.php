@@ -1,24 +1,22 @@
-<header class="p-3 bg-dark text-white">
-    <div class="container">
+<nav class="p-3 bg-dark text-white ">
+    <div class="container-fluid">
+      
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none ">
           <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
         </a>
-
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">About</a></li>
-        </ul>
-
-        <div class="col-4 text-center me-5">
-            <a class="blog-header-logo text-white" href="{{ route('home') }}">
-              {{config('app.name')}}
-            </a>
-        </div>
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+        <div class="col-4 text-start ">
+          <a class=" text-white navbar-brand" href="{{ route('home') }}">
+            {{config('app.name')}}
+          </a>
+      </div>
+        @foreach($topics as $topic)    
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 me-3" >
+              <li><a href="#" class="nav-link px-2 text-secondary ps-3 me-3">{{$topic->title}}</a></li>
+            </ul>
+        @endforeach
+     
+        <form class="col-12 col-lg-auto ms-3  mb-lg-0 me-lg-3 ">
           <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
         </form>
 
@@ -32,4 +30,4 @@
         </div>
       </div>
     </div>
-</header> 
+</nav> 

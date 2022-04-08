@@ -7,9 +7,11 @@ use App\Models\User;
 use App\Models\Post;
 use App\Models\Topic;
 use Illuminate\Http\Request;
+use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -35,19 +37,12 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\PostRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
-        $request->validate([
-            'title' => 'required|min:2|max:240',
-            'topic_id' => 'required|exists:topics,id',
-            'maxPlayer' => 'required|min:1|max:12',
-            'description' => 'required',
-            'content' => 'required',
-            'cover' =>'file|image',
-        ]);
+
         //dd($request->all());
 
         //todo replace this with authenticated user
@@ -94,11 +89,11 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\PostRequest  $request
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(PostRequest $request, Post $post)
     {
         //
     }

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,13 +12,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/',[Controllers\HomeController::class,'index'])->name('home');/*
+Route::get('/publish',[Controllers\PostController::class,'create'])->name('post.create');
+Route::post('/publish',[Controllers\PostController::class,'store']);*/
+Route::middleware(['auth'])->group(function () {
+    Route::get('/publish', [Controllers\PostController::class, 'create'])->name('post.create');
+    Route::post('/publish', [Controllers\PostController::class, 'store']);
 });
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
+Route::get('/post/{post}',[Controllers\PostController::class,'show'])->name('post.details');//a PostControllerben el van ez nevezve
+//{post}->van egy paraméter amit tudunk használni
 require __DIR__.'/auth.php';

@@ -29,13 +29,14 @@ class Post extends Model
 
     public function getCoverImageAttribute()
     {
-        if ($this->has_cover) {
+        if ($this->has_cover) 
+        {
             return asset("upload/posts/{$this->cover}"); //ha van cover-je
         }
         return "https://via.placeholder.com/350"; //ha pedig nincsen akkor ezzel térjen vissza
     }
     public function comments()
     {
-        return $this->morphMany(Comment::class,'commentable'); //1 postnak több kommentje lehet
+        return $this->morphMany(Comment::class,'commentable')->orderBy('created_at','desc'); //1 postnak több kommentje lehet
     }
 }

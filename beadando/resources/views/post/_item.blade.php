@@ -3,12 +3,18 @@
         <div class="card-body" >
             <div class="d-flex text-center">
                 <img class="card-img-top" width="200" height="300" src="{{$post->cover_image }}" alt="{{ $post->title }}" style="object-fit: cover;"> 
+                
             </div>
-            <div class="ms-3 text-center">
+            <div class="ms-3 text-center" >
                 <h5 class="display-5">{{$post->title}}</h5>
                 <p class="card-text"></p>
-                    {{$post->topic->title}} | {{__('Maximum játékos: ') }}{{$post->maxPlayer}}{{__(' fő') }}
+                <a style="text-decoration: none;" href="{{ route('topic.show', $post->topic) }}">
+                    {{ $post->topic->title }}
+                </a> | {{__('Maximum játékos: ') }}{{$post->maxPlayer}}{{__(' fő') }}
                 </p>
+                
+                   
+              
                 <p class="fw-bold">
                     {{$post->description}}
                 </p>

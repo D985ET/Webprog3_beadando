@@ -15,10 +15,20 @@ use App\Http\Controllers;
 Route::get('/',[Controllers\HomeController::class,'index'])->name('home');/*
 Route::get('/publish',[Controllers\PostController::class,'create'])->name('post.create');
 Route::post('/publish',[Controllers\PostController::class,'store']);*/
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth'])->group(function () { //csak akkor lehessen kommentelni ha be van jelentkezve
     Route::get('/publish', [Controllers\PostController::class, 'create'])->name('post.create');
     Route::post('/publish', [Controllers\PostController::class, 'store']);
+
+    Route::get('/post/{post}/edit', [Controllers\PostController::class, 'edit'])->name('post.edit');
+    Route::post('/post/{post}/edit', [Controllers\PostController::class, 'update']);
+   
+    Route::post('/post/{post}/comment', [Controllers\PostController::class, 'comment'])->name('post.comment');
 });
+
 Route::get('/post/{post}',[Controllers\PostController::class,'show'])->name('post.details');//a PostControllerben el van ez nevezve
+
+Route::get('/topic/{topic}', [Controllers\TopicController::class, 'show'])->name('topic.show');
+
+Route::get('/profile/{user}', [Controllers\ProfileController::class, 'show'])->name('profile.show');
 //{post}->van egy paraméter amit tudunk használni
 require __DIR__.'/auth.php';

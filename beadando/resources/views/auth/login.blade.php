@@ -17,7 +17,7 @@
                             </label>
                         </div>
                         <div class="d-grid">
-                            <button class="btn btn-primary btn-lg" type="submit">
+                            <button class="btn btn-primary btn-outline-dark btn-lg" style="background-color: #f55247" type="submit">
                                 {{ __('Sign in') }}
                             </button>
                         </div>

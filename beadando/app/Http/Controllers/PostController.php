@@ -120,9 +120,7 @@ class PostController extends Controller
             $post->save();
         }
 
-        return redirect()
-            ->route('post.edit', $post)
-            ->with('success', __('Post updated successfully'));
+        return redirect()->route('post.edit', $post)->with('success', __('Post updated successfully'));
     }
 
     /**
@@ -157,7 +155,7 @@ class PostController extends Controller
     {
         $file = $request->file('cover');
 
-        if (!$file) {
+        if (!$file) { //hogyha nincs kép akkor csak simán hagyja ki
             return;
         }
         $fileName = uniqid();

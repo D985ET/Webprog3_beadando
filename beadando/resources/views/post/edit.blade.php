@@ -15,14 +15,20 @@
 <form action="{{ route('post.edit', $post) }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="d-flex align-items-center mb-3">
-        <h3 class="display-3">{{ __('Updating') }} {{ $post->title }}</h3>
-        <button class="ms-auto btn btn-primary">Update</button>
+        <h3 class="display-3">{{ __('Updating:') }} {{ $post->title }}</h3>
     </div>
     <div class="row">
         <div class="col-lg-8 col-md-6">
             <div class="card">
                 <div class="card-body">
                     <x-forms.input name="title" label="{{ __('Title') }}" value="{{ $post->title }}" />
+                    <div class="mb-3"> 
+                        <label for="maxPlayer">{{__('MaxPlayer')}}</label>
+                        <input class="form-control {{$errors->has('maxPlayer') ? ' is-invalid' : '' }}" type="number" name="maxPlayer" min="1" max="12" value={{old('maxPlayer',$post->maxPlayer)}}>
+                        @if($errors->has('maxPlayer'))<!--ha az errorban benne van valami-->
+                            <p class="invalid-feedback">{{$errors->first('maxPlayer')}}</p><!--első hibaüzenetet megakarom jeleníteni-->
+                        @endif
+                    </div>   
                     <div class="mb-3">
                         <label for="description">{{ __('Description') }}</label>
                         <textarea class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description">{{ old('description', $post->description) }}</textarea>
@@ -68,5 +74,11 @@
             </div>
         </div>
     </div>
+    <div class="d-grid">
+        <button class="btn btn-primary btn-outline-dark btn-lg" style="background-color: #f55247" type="submit">
+            {{ __('Update') }}
+        </button>
+    </div>
 </form>
+
 @endsection

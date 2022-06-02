@@ -10,7 +10,7 @@
             @forelse($posts as $post)
                 @include('post._item')
             @empty
-                <div class="alert alert-warning">
+                <div class="alert alert-secondary">
                     {{ __('No posts to show') }}
                 </div>
             @endforelse

@@ -23,13 +23,6 @@
         <div class="card">
             <div class="card-body">
                 <x-forms.input name="title" label="{{ __('Title') }}"  autocomplete="off" /> <!-- x-mappa.fájlnév -->
-                    <div class="mb-3"> <!--margin bottom 3-->
-                        <label for="title">{{__('Title')}}</label>
-                        <input type="text" class="form-control {{$errors->has('title') ? ' is-invalid' : '' }}" name="title" value="{{old('title')}}"> <!--kell az is invalid-->
-                        @if($errors->has('title'))<!--ha az errorban benne van valami-->
-                            <p class="invalid-feedback">{{$errors->first('title')}}</p><!--első hibaüzenetet megakarom jeleníteni-->
-                        @endif
-                    </div>
                     
                     <div class="mb-3"> 
                         <label for="maxPlayer">{{__('MaxPlayer')}}</label>

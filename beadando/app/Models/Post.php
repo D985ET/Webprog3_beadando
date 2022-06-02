@@ -35,6 +35,7 @@ class Post extends Model
         }
         return "https://via.placeholder.com/350"; //ha pedig nincsen akkor ezzel térjen vissza
     }
+    
     public function comments()
     {
         return $this->morphMany(Comment::class,'commentable')->orderBy('created_at','desc'); //1 postnak több kommentje lehet

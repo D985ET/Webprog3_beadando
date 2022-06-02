@@ -3,11 +3,9 @@
 @section('content')
 <div class="d-flex text-center ">
     <img class="card-img-left " width="300" height="300" src="{{$post->cover_image }}" alt="{{ $post->title }}" > 
-
-    <b><h1 class="display-1 mt-4" >{{$post->title}}</h1></b>
+    <b><h1 class="ml-3 display-1 ms-4">{{$post->title}}</h1></b>
 </div>
-<div class="border-top border-5 mb-2">
-    
+<div class="border-top border-4 mb-2">  
 </div>
 <p> {{$post->topic->title}} | {{__('Maximum: ')}}{{$post->maxPlayer}} {{__('fő számára')}} | {{$post->created_at->diffForHumans()}}</p>
 <p class="fw-bold">{{$post->description}}</p>
@@ -18,16 +16,20 @@
 </div>
 <div class="row">
     <div class="col-md-8 col-lg-6 mx-auto">
-        <h5 class="display-5">
-            {{__('Comments')}} <!--tudunk hivatkozni egy json file-ban erre, pl hu.json-ben, app.php-ban kell átírni a nyelvet-->
+        <h5 class="display-5 text-center">
+            {{__('Comments')}}
         </h5>
-        <form action="{{route('post.comment',$post)}}" method="POST">
+        <form action="{{route('post.comments',$post)}}" method="POST">
             @csrf
             <div class="mb-3">
-                <textarea class="form-control" name="comment"></textarea>
+                <textarea class="form-control {{$errors->has('comment') ? ' is-invalid' : '' }}" name="comment">{{old('comment')}}</textarea>  
+                    @if($errors->has('comment'))<!--ha az errorban benne van valami-->
+                        <p class="alert alert-danger">{{$errors->first('comment')}}</p><!--első hibaüzenetet megakarom jeleníteni-->
+                    @endif
             </div>
+              
             <div class="d-grid">
-                <button class="btn btn-primary">
+                <button  class="btn btn-primary btn-outline-dark btn-lg" style="background-color: #f55247">
                     {{__('Comment')}}
                 </button>
             </div>
@@ -55,7 +57,6 @@
                     </div>
                 </div>
             @endforeach
-        </div>
     </div>
 </div>
 

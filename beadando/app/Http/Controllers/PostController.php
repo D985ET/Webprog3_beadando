@@ -136,19 +136,18 @@ class PostController extends Controller
     public function comment(Post $post, Request $request)
     {
         $request->validate([
-            'comment' => 'required|min:10',
+            'comment' => 'required|min:10', //legalább 10 karakter
         ]);
 
         $comment = new Comment;
         $comment->message = $request->comment;
-        $comment->user()->associate($request->user());
+        $comment->user()->associate($request->user()); //ugyanaz mint az Auth::user()
 
         $post->comments()->save($comment);
 
-        $url = route('post.details', $post) . "#comment-{$comment->id}";
+  
 
-        return redirect($url)
-            ->with('success', __('Comment saved successfully'));
+        return redirect()->route('post.details', $post)->with('success', __('Comment saved successfully'));
     }
 
     private function uploadImage(Request $request)

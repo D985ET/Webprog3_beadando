@@ -82,7 +82,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'hu', //ha englishre akarom átváltani akkor 'en'
 
     /*
     |--------------------------------------------------------------------------

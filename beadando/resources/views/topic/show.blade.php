@@ -11,7 +11,7 @@
                 @include('post._item')
             @empty
                 <div class="alert alert-secondary">
-                    {{ __('No posts to show') }}
+                    {{ __('message.No posts to show') }}
                 </div>
             @endforelse
         </div>

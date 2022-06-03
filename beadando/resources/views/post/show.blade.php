@@ -17,7 +17,7 @@
 <div class="row">
     <div class="col-md-8 col-lg-6 mx-auto">
         <h5 class="display-5 text-center">
-            {{__('Comments')}}
+            {{__('message.Comments')}}
         </h5>
         <form action="{{route('post.comments',$post)}}" method="POST">
             @csrf
@@ -30,7 +30,7 @@
               
             <div class="d-grid">
                 <button  class="btn btn-primary btn-outline-dark btn-lg" style="background-color: #f55247">
-                    {{__('Comment')}}
+                    {{__('message.Comment')}}
                 </button>
             </div>
         </form>

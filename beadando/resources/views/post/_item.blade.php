@@ -10,7 +10,7 @@
                 <p class="card-text"></p>
                 <a style="text-decoration: none;" href="{{ route('topic.show', $post->topic) }}">
                     {{ $post->topic->title }}
-                </a> | {{__('Maximum játékos: ') }}{{$post->maxPlayer}}{{__(' fő') }}
+                </a> | {{__('message.Maximum player') }}{{__(': ') }}{{ $post->maxPlayer}}{{__('message. fő') }}
                 </p>
                 
                    
@@ -19,7 +19,7 @@
                     {{$post->description}}
                 </p>
                 <div class="card-footer ">
-                    <a class="btn btn-primary btn-outline-dark " style="background-color: #f55247" href="{{route('post.details',$post)}}">Részletek</a>
+                    <a class="btn btn-primary btn-outline-dark " style="background-color: #f55247" href="{{route('post.details',$post)}}">{{__('message.More')}}</a>
                 </div>
             </div>
         </div>

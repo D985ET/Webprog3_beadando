@@ -6,6 +6,7 @@ use View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 use App\View\Composers\TopicViewComposer;
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        Schema::defaultStringLength(191);
         Paginator::useBootstrapFive();
         View::composer('*', TopicViewComposer::class);
     }

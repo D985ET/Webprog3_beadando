@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
+use Illuminate\Support\Facades\App;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +14,10 @@ use App\Http\Controllers;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/',[Controllers\HomeController::class,'index'])->name('home');/*
+Route::get('/',[Controllers\HomeController::class,'index'])->name('home');
+Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
+
+/*
 Route::get('/publish',[Controllers\PostController::class,'create'])->name('post.create');
 Route::post('/publish',[Controllers\PostController::class,'store']);*/
 Route::middleware(['auth'])->group(function () { //csak akkor lehessen kommentelni ha be van jelentkezve
@@ -31,5 +36,7 @@ Route::get('/post/{post}',[Controllers\PostController::class,'show'])->name('pos
 Route::get('/topic/{topic}', [Controllers\TopicController::class, 'show'])->name('topic.show');
 
 Route::get('/profile/{user}', [Controllers\ProfileController::class, 'show'])->name('profile.show');
+
+
 //{post}->van egy paraméter amit tudunk használni
 require __DIR__.'/auth.php';

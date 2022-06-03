@@ -17,15 +17,35 @@
               <li><a href="{{ route('topic.show',$topic)}}"  style="color:white" class=" btn-outline-danger nav-link px-1  ps-1 pe-1 me-1 " >{{$topic->title}}</a></li>
             </ul>
         @endforeach
-     
+
+
+        <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle " style="color:#f55247" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="flag-icon flag-icon-{{Config::get('languages')[App::getLocale()]['flag-icon']}}"></span>{{ Config::get('languages')[App::getLocale()]['display'] }}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li>
+                @foreach (Config::get('languages') as $lang => $language)
+                  @if ($lang != App::getLocale())
+                    <a class="dropdown-item" style="color:#f55247" href="{{ route('lang.switch', $lang) }}">
+                    <span class="flag-icon flag-icon-{{$language['flag-icon']}}"></span>{{$language['display']}}
+                    </a>
+                  @endif
+                @endforeach
+              </li>
+          </ul>
+        </div>
+  
+
         <form class="col-12 col-lg-auto ms-3  mb-lg-0 me-lg-3 ">
-          <input type="search" class="form-control form-control-dark" placeholder="Search..."  style="color:#f55247" aria-label="Search">
+          <input type="search" class="form-control form-control-dark" placeholder="{{__('message.Search...')}}"  style="color:#f55247" aria-label="Search">
         </form>
 
+  
       
           @auth <!--be van jelentkezve-->
           <a class="btn btn-sm btn-outline-light btn-primary"  href="{{ route('post.create')}}" style="background-color: #f55247">
-            {{__('Publikálás')}}
+            {{__('message.Upload')}}
           </a>
           <div class="nav-item dropdown">
             <a class="nav-link dropdown-toggle " style="color:#f55247" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -35,14 +55,14 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
                     <a class="dropdown-item" href="{{route('profile.show',Auth::user())}}">
-                        {{ __('Profile') }}
+                        {{ __('message.Profile') }}
                     </a>
                 </li>
                 <li>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button class="dropdown-item" type="submit">
-                            {{ __('Sign out') }}
+                            {{ __('message.Sign out') }}
                         </button>
                     </form>
                 </li>
@@ -50,10 +70,10 @@
           </div>
           @else    <!--nincs bejelentkezve-->
             <a href="{{route('login')}}" class="btn btn-outline-light me-2 " style="background-color:#f55247">
-              {{__('Login')}}
+              {{__('message.Login')}}
             </a>
             <a href="{{route('register')}}" class="btn btn-outline-light  ms-2" style="background-color:#f55247">
-              {{__('Sign up')}}
+              {{__('message.Sign up')}}
             </a>
           @endauth
          

@@ -14,11 +14,11 @@ use App\Http\Requests\PostRequest;
 class PostController extends Controller
 {
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   /*public function __construct()
+    {
+        $this->authorizeResource(Post::class, 'post');
+    }*/
+
     public function index() //listákat jelenítsük meg
     {
         //
@@ -162,5 +162,14 @@ class PostController extends Controller
         $cover = Image::make($file)->save(public_path("upload/posts/{$fileName}.{$file->extension()}"));
 
         return $cover;
+    }
+    protected function resourceAbilityMap()
+    {
+        $abilityMap = parent::resourceAbilityMap();
+
+        $abilityMap['comment'] = 'create';
+     
+
+        return $abilityMap;
     }
 }

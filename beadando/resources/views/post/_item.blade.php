@@ -18,7 +18,13 @@
                 <p class="fw-bold">
                     {{$post->description}}
                 </p>
+              
                 <div class="card-footer ">
+                    @can('update',$post)
+                        <a class="btn btn-primary btn-outline-dark " style="background-color: #f55247" href="{{route('post.edit',$post)}}">
+                            {{__('message.Edit')}}
+                        </a>
+                    @endcan
                     <a class="btn btn-primary btn-outline-dark " style="background-color: #f55247" href="{{route('post.details',$post)}}">{{__('message.More')}}</a>
                 </div>
             </div>

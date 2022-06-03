@@ -29,7 +29,10 @@ return [
     'You must agree before submitting.'=>'You must agree before submitting.',
     'No posts to show'=>'No posts to show',
     'Posts made by'=>'Posts made by',
-    'user:'=>' user:'
+    'user:'=>' user:',
+    'Updating:'=>'Updating:',
+    'Update'=>'Update',
+    'Edit'=>'Edit'
 ]
 
 ?>

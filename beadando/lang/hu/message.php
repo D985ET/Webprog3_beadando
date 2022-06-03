@@ -30,7 +30,10 @@ return [
     'You must agree before submitting.'=>'Bele kell egyezned mielőtt továbbléphetnél.',
     'No posts to show'=>'Nincs megjeleníthető bejegyzés',
     'Posts made by'=>'A bejegyzések száma',
-    'user:'=>' felhasználótól:'
+    'user:'=>' felhasználótól:',
+    'Updating:'=>'Szerkesztés:',
+    'Update'=>'Szerkeszt',
+    'Edit'=>'Szerkeszt'
 
 ]
 

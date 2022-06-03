@@ -5,6 +5,7 @@
     <img class="card-img-left " width="300" height="300" src="{{$post->cover_image }}" alt="{{ $post->title }}" > 
     <b><h1 class="ml-3 display-1 ms-4">{{$post->title}}</h1></b>
 </div>
+
 <div class="border-top border-4 mb-2">  
 </div>
 <p> {{$post->topic->title}} | {{__('Maximum: ')}}{{$post->maxPlayer}} {{__('fő számára')}} | {{$post->created_at->diffForHumans()}}</p>
@@ -14,11 +15,24 @@
     <h5>{{__('Játék leírás:')}}</h5>
     {!!$post->content!!} <!--rendereli a html-t-->
 </div>
+
+<div class="d-grid mb-2">
+    @can('update',$post)
+        <a class="btn btn-primary btn-outline-dark " style="background-color: #f55247" href="{{route('post.edit',$post)}}">
+            {{__('message.Edit')}}
+        </a>
+    @endcan
+</div>
+<div class="border-top border-4 mb-2">  
+</div>
 <div class="row">
     <div class="col-md-8 col-lg-6 mx-auto">
+  
+       
         <h5 class="display-5 text-center">
             {{__('message.Comments')}}
         </h5>
+        @auth
         <form action="{{route('post.comments',$post)}}" method="POST">
             @csrf
             <div class="mb-3">
@@ -34,6 +48,13 @@
                 </button>
             </div>
         </form>
+        @else
+        <div class="d-grid">
+            <a class="btn btn-primary btn-outline-dark btn-lg" style="background-color: #f55247" href="{{ route('login') }}">
+                Log in to comment
+            </a>
+        </div>
+        @endif
         <div class="mt-5">
             @foreach($post->comments as $comment)
                 <div class="card mb-3" id="comment-{{$comment->id}}">

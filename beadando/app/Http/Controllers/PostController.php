@@ -10,6 +10,7 @@ use App\Models\Comment;
 use App\Models\Topic;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
 
 class PostController extends Controller
 {
@@ -111,9 +112,11 @@ class PostController extends Controller
 
         $image = $this->uploadImage($request);
 
-        if ($image) {
-            if ($post->cover) {
-                // todo delete previous cover image from server
+        if ($image) 
+        {
+            if ($post->cover) 
+            {
+                $image->delete();
             }
 
             $post->cover = $image->basename;
@@ -129,9 +132,15 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
-    {
-        //
+    public function destroy($id)
+    { 
+        $post = Post::where('id',$id)->first();
+        if ($post != null)
+        {
+            $post->delete();
+            return redirect()->route('home')->with(['success'=> 'Successfully deleted']);
+        }
+        return redirect()->route('home')->with('success',__('Succesfully deleted'));
     }
     public function comment(Post $post, Request $request)
     {

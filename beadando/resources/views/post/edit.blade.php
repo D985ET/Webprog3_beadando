@@ -12,6 +12,7 @@
 @endpush
 
 @section('content')
+
 <form action="{{ route('post.edit', $post) }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="d-flex align-items-center mb-3">
@@ -74,11 +75,26 @@
             </div>
         </div>
     </div>
-    <div class="d-grid">
-        <button class="btn btn-primary btn-outline-dark btn-lg" style="background-color: #f55247" type="submit">
-            {{ __('message.Update') }}
-        </button>
+
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-primary btn-outline-dark btn-lg" style="background-color: #f55247" type="submit">
+                {{ __('message.Update') }}
+            </button>
+        </div>
+       
     </div>
+
 </form>
+
+<form action="{{ route('post.destroy', $post) }}" method="POST" enctype="multipart/form-data">
+    @csrf
+    @method('DELETE')
+    <button class="btn btn-primary btn-outline-dark btn-lg" style="background-color: #f55247" type="submit">
+        {{ __('message.Delete') }}
+    </button>
+
+</form>
+
 
 @endsection

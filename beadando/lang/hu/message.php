@@ -45,6 +45,7 @@ return [
     'Üdvözöllek '=>'Üdvözöllek ',
     ' a Magnus Társasjátékboltban!' =>' a Magnus Társasjátékboltban!',
     'Jelentkezz be!'=>'Jelentkezz be!',
+    'Delete'=>'Töröl',
     
 
 

@@ -44,6 +44,7 @@ return [
     'Üdvözöllek '=>'Welcome ',
     ' a Magnus Társasjátékboltban!'=>' to the Magnus BoardgameShop',
     'Jelentkezz be!'=>'Please login to access further functions',
+    'Delete'=>'Delete'
 ]
 
 ?>

@@ -42,7 +42,9 @@ return [
     'Táblajáték'=>'Táblajáték',
     'Ügyességi'=>'Ügyességi',
     'Magnus - TársasjátékBolt' => 'Magnus - TársasjátékBolt',
-    'Üdvözöllek a Magnus Társasjátékboltban!'=>'Üdvözöllek a Magnus Társasjátékboltban!',
+    'Üdvözöllek '=>'Üdvözöllek ',
+    ' a Magnus Társasjátékboltban!' =>' a Magnus Társasjátékboltban!',
+    'Jelentkezz be!'=>'Jelentkezz be!',
     
 
 

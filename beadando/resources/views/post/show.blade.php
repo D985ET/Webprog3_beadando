@@ -51,7 +51,7 @@
         @else
         <div class="d-grid">
             <a class="btn btn-primary btn-outline-dark btn-lg" style="background-color: #f55247" href="{{ route('login') }}">
-                Log in to comment
+                {{__('message.Jelentkezz be!' )}}
             </a>
         </div>
         @endif

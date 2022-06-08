@@ -41,7 +41,9 @@ return [
     'Táblajáték'=>'TableGame',
     'Ügyességi'=>'Skill',
     'Magnus - TársasjátékBolt'=>'Magnus - BoardgameShop',
-    'Üdvözöllek a Magnus Társasjátékboltban!'=>'Welcome to the Magnus BoardgameShop!'
+    'Üdvözöllek '=>'Welcome ',
+    ' a Magnus Társasjátékboltban!'=>' to the Magnus BoardgameShop',
+    'Jelentkezz be!'=>'Please login to access further functions',
 ]
 
 ?>

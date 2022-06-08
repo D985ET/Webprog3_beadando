@@ -2,7 +2,7 @@
 
 @section('content')
     <h1 class="display-1">
-        {{ $topic->title }}
+        {{__('message.'.$topic->title.'')}}
     </h1>
     <p>{{ $topic->description }}</p>
     <div class="row">

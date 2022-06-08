@@ -14,7 +14,7 @@
       </div>
         @foreach($topics as $topic)    
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 me-3" >
-              <li><a href="{{ route('topic.show',$topic)}}"  style="color:white" class=" btn-outline-danger nav-link px-1  ps-1 pe-1 me-1 " >{{$topic->title}}</a></li>
+              <li><a href="{{ route('topic.show',$topic)}}"  style="color:white" class=" btn-outline-danger nav-link px-1  ps-1 pe-1 me-1 " >{{__('message.'.$topic->title.'')}}</a></li>
             </ul>
         @endforeach
 
@@ -83,3 +83,6 @@
       </div>
     </div>
 </nav> 
+
+
+

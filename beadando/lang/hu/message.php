@@ -33,7 +33,18 @@ return [
     'user:'=>' felhasználótól:',
     'Updating:'=>'Szerkesztés:',
     'Update'=>'Szerkeszt',
-    'Edit'=>'Szerkeszt'
+    'Edit'=>'Szerkeszt',
+    'Beszélgetős'=>'Beszélgetős',
+    'Kooperatív'=>'Kooperatív',
+    'Kvíz'=>'Kvíz',
+    'Logikai'=>'Logikai',
+    'Stratégiai'=>'Stratégiai',
+    'Táblajáték'=>'Táblajáték',
+    'Ügyességi'=>'Ügyességi',
+    'Magnus - TársasjátékBolt' => 'Magnus - TársasjátékBolt',
+    'Üdvözöllek a Magnus Társasjátékboltban!'=>'Üdvözöllek a Magnus Társasjátékboltban!',
+    
+
 
 ]
 

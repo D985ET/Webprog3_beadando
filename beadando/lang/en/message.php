@@ -32,7 +32,16 @@ return [
     'user:'=>' user:',
     'Updating:'=>'Updating:',
     'Update'=>'Update',
-    'Edit'=>'Edit'
+    'Edit'=>'Edit',
+    'Beszélgetős'=>'Conversational',
+    'Kooperatív'=>'Cooperative',
+    'Kvíz'=>'Quiz',
+    'Logikai'=>'Logical',
+    'Stratégiai'=>'Strategic',
+    'Táblajáték'=>'TableGame',
+    'Ügyességi'=>'Skill',
+    'Magnus - TársasjátékBolt'=>'Magnus - BoardgameShop',
+    'Üdvözöllek a Magnus Társasjátékboltban!'=>'Welcome to the Magnus BoardgameShop!'
 ]
 
 ?>

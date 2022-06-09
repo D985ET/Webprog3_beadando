@@ -44,7 +44,9 @@ return [
     'Üdvözöllek '=>'Welcome ',
     ' a Magnus Társasjátékboltban!'=>' to the Magnus BoardgameShop',
     'Jelentkezz be!'=>'Please login to access further functions',
-    'Delete'=>'Delete'
+    'Delete'=>'Delete',
+    'Blog template built for'=>'Blog template built for',
+    'Back to top'=>'Back to top',
 ]
 
 ?>

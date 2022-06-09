@@ -28,7 +28,6 @@ Route::middleware(['auth'])->group(function () { //csak akkor lehessen kommentel
     Route::get('/post/{post}/edit', [Controllers\PostController::class, 'edit'])->name('post.edit');
     Route::post('/post/{post}/edit', [Controllers\PostController::class, 'update']);
 
-    Route::post('/post/{post}/delete',[Controllers\PostController::class,'delete']);
     Route::delete('/post/{post}/delete',[Controllers\PostController::class,'destroy'])->name('post.destroy');
    
     Route::post('/post/{post}/comment', [Controllers\PostController::class, 'comment'])->name('post.comments'); //csak akkor lehetssen kommentelni ha valaki be van jelentkezve

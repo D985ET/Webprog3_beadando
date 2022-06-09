@@ -11,6 +11,8 @@
 </script>
 @endpush
 
+@auth
+@if(Auth::user()->isAdmin == true)
 @section('content')
 
 <form action="{{ route('post.edit', $post) }}" method="POST" enctype="multipart/form-data">
@@ -90,11 +92,14 @@
 <form action="{{ route('post.destroy', $post) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('DELETE')
-    <button class="btn btn-primary btn-outline-dark btn-lg" style="background-color: #f55247" type="submit">
-        {{ __('message.Delete') }}
-    </button>
+    
+        <button class="btn btn-primary btn-outline-dark btn-lg" style="background-color: #f55247" type="submit">
+            {{ __('message.Delete') }}
+        </button>
+  
 
 </form>
 
-
+@endif
+@endauth
 @endsection

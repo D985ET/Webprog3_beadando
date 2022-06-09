@@ -12,6 +12,9 @@
 </script>
 @endpush
 
+@auth
+@if(Auth::user()->isAdmin == true)
+
 @section('content')
 <form action="{{route('post.create')}}" method="POST" enctype="multipart/form-data"><!--enctype-al már menni fog a kép küldés-->
 @csrf
@@ -79,4 +82,6 @@
     <button  class="btn btn-primary btn-outline-dark btn-lg" style="background-color: #f55247">{{__('message.Upload')}}</button>
 </div>
 </form>
+@endif
+@endauth
 @endsection

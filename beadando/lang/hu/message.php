@@ -46,6 +46,8 @@ return [
     ' a Magnus Társasjátékboltban!' =>' a Magnus Társasjátékboltban!',
     'Jelentkezz be!'=>'Jelentkezz be!',
     'Delete'=>'Töröl',
+    'Blog template built for'=>'Blog készítve neki:',
+    'Back to top'=>'Vissza a tetejére',
     
 
 

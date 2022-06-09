@@ -86,9 +86,6 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        if ($post->author != Auth::user()) {
-            return abort(403);
-        }
 
         $topics = Topic::orderBy('title')->get();
 
@@ -104,9 +101,7 @@ class PostController extends Controller
      */
     public function update(PostRequest $request, Post $post)
     {
-        if ($post->author != Auth::user()) {
-            return abort(403);
-        }
+       
 
         $post->update($request->except('_token'));
 
@@ -132,15 +127,26 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     { 
-        $post = Post::where('id',$id)->first();
+        $image = $post->cover;
+        $image_path = public_path('upload\\posts\\').$image;
+       
+        if (isset($image) && file_exists($image_path)) 
+        {
+            unlink($image_path);
+        }
+        $post = Post::where('id',$post->id)->first();
         if ($post != null)
         {
             $post->delete();
             return redirect()->route('home')->with(['success'=> 'Successfully deleted']);
         }
-        return redirect()->route('home')->with('success',__('Succesfully deleted'));
+        else
+        {
+            return redirect()->route('home')->with(['fail'=>'Delete failed!']);
+        }
+
     }
     public function comment(Post $post, Request $request)
     {

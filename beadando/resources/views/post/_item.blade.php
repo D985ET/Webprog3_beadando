@@ -23,13 +23,20 @@
                     {{$post->description}}
                 </p>
             
+                
                 <div class="card-footer ">
-                    @can('update',$post)
-                        <a class="btn btn-primary btn-outline-dark " style="background-color: #f55247" href="{{route('post.edit',$post)}}">
-                            {{__('message.Edit')}}
-                        </a>
-                    @endcan
-                    <a class="btn btn-primary btn-outline-dark " style="background-color: #f55247" href="{{route('post.details',$post)}}">{{__('message.More')}}</a>
+                    @auth
+                    @if(Auth::user()->isAdmin == true)
+                        @can('update',$post)
+                            <a class="btn btn-primary btn-outline-dark " style="background-color: #f55247" href="{{route('post.edit',$post)}}">
+                                {{__('message.Edit')}}
+                            </a>
+                        @endcan
+                    @endif
+                    @endauth
+                    
+                        <a class="btn btn-primary btn-outline-dark " style="background-color: #f55247" href="{{route('post.details',$post)}}">{{__('message.More')}}</a>
+                    
                 </div>
             </div>
         </div>

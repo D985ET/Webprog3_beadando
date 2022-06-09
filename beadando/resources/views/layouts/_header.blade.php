@@ -37,16 +37,14 @@
         </div>
   
 
-        <form class="col-12 col-lg-auto ms-3  mb-lg-0 me-lg-3 ">
-          <input type="search" class="form-control form-control-dark" placeholder="{{__('message.Search...')}}"  style="color:#f55247" aria-label="Search">
-        </form>
-
   
       
           @auth <!--be van jelentkezve-->
-          <a class="btn btn-sm btn-outline-light btn-primary"  href="{{ route('post.create')}}" style="background-color: #f55247">
-            {{__('message.Upload')}}
-          </a>
+          @if(Auth::user()->isAdmin == true)
+            <a class="btn btn-sm btn-outline-light btn-primary"  href="{{ route('post.create')}}" style="background-color: #f55247">
+              {{__('message.Upload')}}
+            </a>
+          @endif
           <div class="nav-item dropdown">
             <a class="nav-link dropdown-toggle " style="color:#f55247" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <img class="rounded-circle me-2" width="25" src="{{ Auth::user()->avatar }}" />
